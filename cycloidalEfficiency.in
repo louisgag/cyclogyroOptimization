@@ -61,8 +61,8 @@ variables
 
 interface
   id_interface = 'I1'
-  analysis_driver = '/home/louis/8TB/Humboldt/Konferenzen/JACM_DroneDimensioning/JACM_manuscriptLatex/cycloidalEfficiency'
-    fork  asynchronous evaluation_concurrency = 1024
+  analysis_driver = 'cycloidalEfficiency' # may need to give the full path toi generated executable here
+    fork  asynchronous evaluation_concurrency = 1024 # may want to use fewer (than 1024) simultaneous processes
     parameters_file = 'params.in'
     results_file    = 'results.out'
 
