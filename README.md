@@ -13,7 +13,7 @@ optimRun = bool(1) # true to run an optimization equation generating process (ie
 getCPP = bool(1) # c++ generator
 postRun = bool(0) # run as post dakota run thus using the soln values from the dakota result
 ```
-compile the generated code using, for example: `g++ -Wall -O2 -o cycloidalEfficiency cycloidalEfficiency.cpp`
+compile the generated code using, for example: `touch test.h; g++ -Wall -O2 -o cycloidalEfficiency cycloidalEfficiency.cpp`
 and run it with dakota using: `dakota -i cycloidalEfficiency.in -o cycloidalEfficiency.out > cycloidalEfficiency.stdout`
 
 To obtain the general drone performance indicators (efficiency, deformation, stresses, ...) from a set of parameters (e.g.: the obtained optimum from Dakota) use the following initial parameters:
