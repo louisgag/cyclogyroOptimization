@@ -7,12 +7,6 @@ environment
 #  graphics
 
 method
-  id_method = 'HS'
-  multi_start
-  method_pointer = 'SOGAHYB'
-  random_starts =  100 # seed = 123
-
-method
   id_method = 'SOGAHYB'
   hybrid sequential
   method_pointer_list = 'SOGA' 'NLP'
