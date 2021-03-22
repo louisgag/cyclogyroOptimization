@@ -1,0 +1,89 @@
+# Dakota Input File: cycloidalEfficiency.in
+# Usage:
+#   dakota -i cycloidalEfficiency.in -o cycloidalEfficiency.out > cycloidalEfficiency.stdout
+
+environment
+  top_method_pointer = 'SOGAHYB'
+#  graphics
+
+method
+  id_method = 'HS'
+  multi_start
+  method_pointer = 'SOGAHYB'
+  random_starts =  100 # seed = 123
+
+method
+  id_method = 'SOGAHYB'
+  hybrid sequential
+  method_pointer_list = 'SOGA' 'NLP'
+  
+method
+  id_method = 'SOGA'
+  model_pointer = 'M1'
+  soga
+    convergence_tolerance = 1e-5
+    fitness_type merit_function
+    constraint_penalty = 1
+    mutation_type offset_cauchy
+    mutation_scale 0.7
+    mutation_rate 0.95
+    replacement_type favor_feasible
+    max_function_evaluations = 8000000
+    max_iterations = 8000 # 50
+    population_size = 8192
+    
+method
+  id_method = 'NLP'
+  model_pointer = 'M2'
+        conmin_mfd
+    convergence_tolerance = 1.e-15
+  max_function_evaluations = 10000
+  max_iterations = 1000
+    verbose output
+
+model
+  id_model = 'M1'
+  single
+    variables_pointer = 'V1'
+    interface_pointer = 'I1'
+    responses_pointer = 'R1'
+
+model
+  id_model = 'M2'
+  single
+    variables_pointer = 'V1'
+    interface_pointer = 'I1'
+    responses_pointer = 'R2'
+
+variables
+  id_variables = 'V1'
+  continuous_design = 10
+    initial_point   0.15      0.30          0.1      4       400         5.e-5       0.18     30        30               0.59
+    lower_bounds    0.02      0.01          0.05     2       2           5.e-7       0.03     10        10               0.04
+    upper_bounds    0.2       1.57          0.75      6       1000         1.e-4       0.25     90        90               5
+    descriptors     'c_txt'   'theta_c_txt' 'r_txt'  'n_txt' 'omega_txt' 'a_rod_txt' 'b_txt'  'p_i_txt'	'p_i_fr_txt'	'r_s_txt'
+    scale_types      'auto'
+    linear_inequality_scale_types = 'auto'
+
+interface
+  id_interface = 'I1'
+  analysis_driver = '/home/louis/8TB/Humboldt/Konferenzen/JACM_DroneDimensioning/JACM_manuscriptLatex/cycloidalEfficiency'
+    fork  asynchronous evaluation_concurrency = 1024
+    parameters_file = 'params.in'
+    results_file    = 'results.out'
+
+responses
+  id_responses = 'R1'
+  objective_functions = 1
+  nonlinear_inequality_constraints = 7
+  no_gradients
+  no_hessians
+
+
+responses
+  id_responses = 'R2'
+  objective_functions = 1
+  nonlinear_inequality_constraints = 7
+  analytic_gradients
+  no_hessians
+
