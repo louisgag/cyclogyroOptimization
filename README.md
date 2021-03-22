@@ -13,7 +13,7 @@ optimRun = bool(1) # true to run an optimization equation generating process (ie
 getCPP = bool(1) # c++ generator
 postRun = bool(0) # run as post dakota run thus using the soln values from the dakota result
 ```
-compile it using, for example: `g++ -Wall -O2 -o cycloidalEfficiency cycloidalEfficiency.cpp`
+compile the generated code using, for example: `g++ -Wall -O2 -o cycloidalEfficiency cycloidalEfficiency.cpp`
 and run it with dakota using: `dakota -i cycloidalEfficiency.in -o cycloidalEfficiency.out > cycloidalEfficiency.stdout`
 
 To obtain the general drone performance indicators (efficiency, deformation, stresses, ...) from a set of parameters (e.g.: the obtained optimum from Dakota) use the following initial parameters:
@@ -25,3 +25,7 @@ postRun = bool(1) # run as post dakota run thus using the soln values from the d
 ```
 
 and properly set the parameters in the **if (postRun): # Final values for JACM article** cell.
+
+The code was developped with funding of the [**Polimi International Fellowship**](https://www.polimi.it/en/faculty-and-staff/calls-and-competitions/international-fellowships/) research grant Index no. 1378 - Ref. No. 15881 made available for the [An aeroelastic study of cycloidal rotors used in various configurations](http://louisgagnon.com/cycloPolimiFellowship.html) project which covered the vast majority of the work presented here.
+
+Small revisions to the code were made possible through the support of the [Alexander von Humboldt Foundation](https://www.humboldt-foundation.de/) for the [A Novel and Simple Aircraft Requiring Minimal Power to Hover](http://louisgagnon.com/research/AvH_cyclo.html) project.
