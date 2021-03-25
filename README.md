@@ -4,7 +4,7 @@ Optimization procedure to obtain a 3D printed energy efficient hovering cycloida
 **Note: if the jupyter notebook file doe not show properly in GitHub, try reloading it.**
 
 The equations and results coming from this optimization can be seen in the (currently accepted by the [Journal of Applied and Computational Mechanics](https://jacm.scu.ac.ir/)) following paper: 
-_**Parametric optimization of a cyclogiro aircraft design for efficient hover with aeroelastic considerations**_ by Louis Gagnon, Marco Morandini, and Stéphane Fournier.
+_**[Parametric optimization of a cyclogiro aircraft design for efficient hover with aeroelastic considerations](https://jacm.scu.ac.ir/article_16704.html)**_ by Louis Gagnon, Marco Morandini, and Stéphane Fournier.
 The AEAT and AIAA papers that are mentioned in the code and in the paper can be downloaded here: http://louisgagnon.com/publications.html
 
 This [SageMath](https://www.sagemath.org/) (9.12) code will automatically generate the C++ equations that can be ran with the [Dakota](https://dakota.sandia.gov/) (6.13) optimization toolkit using the [cycloidalEfficiency.in](https://github.com/louisgag/cyclogyroOptimization/blob/main/cycloidalEfficiency.in) input file to find the optimal parameters for best hover energy effiicency.
